@@ -1,0 +1,17 @@
+SANITATION OTHERS                                   330
+DOS - ENFORCEMENT AGENTS                             74
+TAXI_TLC                                             66
+DEPT. OF BUILDINGS                                   47
+DEPT OF TRANSPORTATION                               44
+SANITATION RECYCLING                                 33
+DCA - Tobacco Retail Dealer                           6
+DCA - Electronic Cigarette Dealer                     6
+DOH MENTAL HEALTH                                     5
+SANITATION POLICE                                     4
+SANITATION ENVIRON. POLICE                            3
+DOHMH - VPHS                                          1
+TAXI_Port Authority                                   1
+TAXI_NYPD                                             1
+DCA - Electronic & Home Appliance Service Dealer      1
+DCA - Tax Preparers                                   1
+Name: issuing_agency, dtype: int64

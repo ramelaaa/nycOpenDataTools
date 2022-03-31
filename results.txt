@@ -1,0 +1,10 @@
+- Surujnauth Ramnauth: 
+0    Ticket Number: 042944723N  Paid:$100 DOS - ENFORCEMENT AGENTS
+dtype: object
+- Toumwatee Ramnauth: 
+No Tickets
+- Surujnauth and Toumwatee Ramnauth: 
+0    Ticket Number: 000512275X  Paid:$350 DEP - BUREAU OF ENV. COMPLIANC
+dtype: object
+- Ramela Ramnauth: 
+No Tickets
