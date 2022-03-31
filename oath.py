@@ -7,37 +7,58 @@ pd.options.display.max_columns = None
 pd.set_option('display.max_colwidth', None)
 client = Socrata("data.cityofnewyork.us", None)
 
-surujnauth = client.get("jz4z-kudi",where="respondent_last_name='RAMNAUTH' AND respondent_first_name='SURUJNAUTH' " ,limit=20)
-toumwatee = client.get("jz4z-kudi",where="respondent_last_name='RAMNAUTH' AND respondent_first_name='TOUMWATEE' " ,limit=20)
-ramela = client.get("jz4z-kudi",where="respondent_last_name='RAMNAUTH' AND respondent_first_name='RAMELA' " ,limit=20)
-surujnauthtoumwat = client.get("jz4z-kudi",where="respondent_first_name='SURUJNAUTHTOUMWAT' " ,limit=20)
-home = client.get("jz4z-kudi",where="violation_location_borough='BRONX' AND violation_location_block_no='03997' AND violation_location_lot_no='0068'",limit=20)
+dataset_id = "jz4z-kudi"
 
-toumwatee_df = pd.DataFrame.from_records(toumwatee)
-ramela_df = pd.DataFrame.from_records(ramela)
-surujnauth_df = pd.DataFrame.from_records(surujnauth)
-surujnauthtoumwat_df = pd.DataFrame.from_records(surujnauthtoumwat)
-home_df = pd.DataFrame.from_records(home)
+lastname    = "respondent_last_name='RAMNAUTH'"
+surujnauth  = "respondent_first_name='SURUJNAUTH'"
+toumwatee   = "respondent_first_name='TOUMWATEE'"
+ramela      = "respondent_first_name='RAMELA'"
+sANDt       = "respondent_first_name='SURUJNAUTHTOUMWAT'"
+
+borough = "violation_location_borough='BRONX'"
+block   = "violation_location_block_no='03997'"
+lot     = "violation_location_lot_no='0068'"
+
+responseLimit = 20
+
+surujnauthQuery          = client.get(dataset_id,where=lastname + " AND " + surujnauth ,limit=responseLimit)
+toumwateeQuery           = client.get(dataset_id,where=lastname + " AND " + toumwatee,limit=responseLimit)
+ramelaQuery              = client.get(dataset_id,where=lastname + " AND " + ramela ,limit=responseLimit)
+surujnauthtoumwatQuery   = client.get(dataset_id,where=sANDt,limit=responseLimit)
+homeQuery                = client.get(dataset_id,where= borough + " AND " + block + " AND " + lot,limit = responseLimit)
+
+# Create DataFrames for each data set
+toumwatee_df            = pd.DataFrame.from_records(toumwateeQuery)
+ramela_df               = pd.DataFrame.from_records(ramelaQuery)
+surujnauth_df           = pd.DataFrame.from_records(surujnauthQuery)
+surujnauthtoumwat_df    = pd.DataFrame.from_records(surujnauthtoumwatQuery)
+home_df                 = pd.DataFrame.from_records(homeQuery)
+
+# print rresuls 
 print("- Surujnauth Ramnauth: ")
 if surujnauth_df.empty:
     print ("No Tickets")
 else:
     print("Ticket Number: " + surujnauth_df["ticket_number"] + "  Paid:$" + surujnauth_df["paid_amount"] + " " + surujnauth_df["issuing_agency"])
+
 print("- Toumwatee Ramnauth: ")
 if toumwatee_df.empty:
     print ("No Tickets")
 else:
     print("Ticket Number: " + toumwatee_df["ticket_number"] + " Paid:$" + toumwatee_df["paid_amount"]+ " " + toumwatee_df["issuing_agency"])
+
 print("- Surujnauth and Toumwatee Ramnauth: ")
 if surujnauthtoumwat_df.empty:
     print ("No Tickets")
 else:
     print("Ticket Number: " + surujnauthtoumwat_df["ticket_number"] + "  Paid:$" + surujnauthtoumwat_df["paid_amount"]+ " " + surujnauthtoumwat_df["issuing_agency"])
+
 print("- Ramela Ramnauth: ")
 if ramela_df.empty:
     print ("No Tickets")
 else:
     print("Ticket Number: " + ramela_df["ticket_number"] + " Paid:$" + ramela_df["paid_amount"]+ " " + ramela_df["issuing_agency"])
+
 print("- Home")
 if home_df.empty:
     print ("No Tickets")
