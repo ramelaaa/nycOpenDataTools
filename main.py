@@ -1,4 +1,4 @@
-mport pandas as pd
+import pandas as pd
 from sodapy import Socrata
 
 pd.options.display.max_columns = None
