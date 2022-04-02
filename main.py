@@ -1,18 +1,24 @@
 from plates import plates 
 from oath import oath
 from threeOneOne import threeOneOne
+from hpd import hpd
 
-x = threeOneOne("2039970068")
+x = hpd("2042259")
 x.getInfo()
 x.createDataFrame()
-x.cleanDataFrame()
 x.print()
 
-y = threeOneOne("FULLER STREET","BRONX")
-y.getInfo()
-y.createDataFrame()
-y.cleanDataFrame()
-y.print()
+# x = threeOneOne("2039970068")
+# x.getInfo()
+# x.createDataFrame()
+# x.cleanDataFrame()
+# x.print()
+
+# y = threeOneOne("FULLER STREET","BRONX")
+# y.getInfo()
+# y.createDataFrame()
+# y.cleanDataFrame()
+# y.print()
 
 # oath1 = oath("RAMNAUTH", "SURUJNAUTH")
 # oath2 = oath("BRONX","03997","0068")
