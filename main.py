@@ -2,13 +2,13 @@ from plates import plates
 from oath import oath
 from threeOneOne import threeOneOne
 
-x = threeOneOne("bbl","2039970068")
+x = threeOneOne("2039970068")
 x.getInfo()
 x.createDataFrame()
 x.cleanDataFrame()
 x.print()
 
-y = threeOneOne("street","FULLER STREET","BRONX")
+y = threeOneOne("FULLER STREET","BRONX")
 y.getInfo()
 y.createDataFrame()
 y.cleanDataFrame()

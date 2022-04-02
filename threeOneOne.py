@@ -3,12 +3,12 @@ from sodapy import Socrata
 
 class threeOneOne:
     def __init__(self, *args):
-        if(len(args) == 2):
-            self.bbl = args[1]
+        if(len(args) == 1):
+            self.bbl = args[0]
             self.type = "bbl"
-        elif(len(args) == 3):
-            self.street = args[1]
-            self.borough = args[2]
+        elif(len(args) == 2):
+            self.street = args[0]
+            self.borough = args[1]
             self.type = "street"
         self.client = Socrata("data.cityofnewyork.us", None)
 
