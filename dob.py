@@ -2,7 +2,7 @@
 import pandas as pd
 from sodapy import Socrata
 
-class hpd:
+class dob:
     """
     Constructor takes two parameters, a plate number and state abbreviation, both as strings
     In the Constructor,Socrata object is initiated to make api calls
@@ -30,4 +30,4 @@ class hpd:
     """
     def print(self):
         print(self.bin)
-        print(self.data_df[["violationid","class","inspectiondate","violationstatus"]])
+        print(self.data_df[["violation_number","issue_date","violation_type"]])
