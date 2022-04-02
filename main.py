@@ -1,10 +1,8 @@
 from plates import plates 
-from oathClass import oath
+from oath import oath
 
 oath1 = oath("RAMNAUTH", "SURUJNAUTH")
 oath2 = oath("BRONX","03997","0068")
-
-
 
 oath1.getInfo()
 oath2.getInfo()
