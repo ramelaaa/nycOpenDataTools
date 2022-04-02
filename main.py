@@ -1,7 +1,14 @@
 from platesClass import plates 
-plate = plates("HAC7330", "NY")
+from oathClass import oath
 
-plate.getInfo()
-plate.createDataFrame()
-plate.cleanDataFrame()
-plate.print()
+
+
+
+
+
+
+# plate = plates("HAC7330", "NY")
+# plate.getInfo()
+# plate.createDataFrame()
+# plate.cleanDataFrame()
+# plate.print()
