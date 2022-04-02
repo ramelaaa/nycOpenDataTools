@@ -3,22 +3,41 @@ import pandas as pd
 from sodapy import Socrata
 
 class plates:
+    """
+    Constructor takes two parameters, a plate number and state abbreviation, both as strings
+    In the Constructor,Socrata object is initiated to make api calls
+    """
     def __init__(self, plateNumber, state):
         self.plateNumber = plateNumber
         self.state = state
-        self.client = client = Socrata("data.cityofnewyork.us", None)
+        self.client = Socrata("data.cityofnewyork.us", None)
 
+    """
+    API call is made and stored in data
+    """
     def getInfo(self):
         self.data = self.client.get("nc67-uf89",where="plate='" + self.plateNumber + "'AND state ='" + self.state + "'",limit=100000)
 
+    """
+    Data Frame is made from data
+    """
     def createDataFrame(self):
         self.tickets_df = pd.DataFrame.from_records(self.data)
-    
+
+    """ 
+        amount_due must be made to numeric to sum all the values
+        issue date is converted to date to sort by it
+        finally, sort by date
+    """
     def cleanDataFrame(self):
         self.tickets_df["amount_due"] = pd.to_numeric(self.tickets_df["amount_due"])
         self.tickets_df["issue_date"] = pd.to_datetime(self.tickets_df["issue_date"])
         self.tickets_df = self.tickets_df.sort_values(by="issue_date")
 
+    """ 
+        sum the amount of money owed
+        print columns
+    """
     def print(self):
         print(self.plateNumber, self.state)
         print("Amount Due: $",self.tickets_df["amount_due"].sum())
