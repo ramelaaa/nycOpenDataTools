@@ -17,3 +17,9 @@ class plates:
     def cleanDataFrame(self):
         self.tickets_df["amount_due"] = pd.to_numeric(self.tickets_df["amount_due"])
         self.tickets_df["issue_date"] = pd.to_datetime(self.tickets_df["issue_date"])
+        self.tickets_df = self.tickets_df.sort_values(by="issue_date")
+
+    def print(self):
+        print(self.plateNumber, self.state)
+        print("Amount Due: $",self.tickets_df["amount_due"].sum())
+        print(self.tickets_df[["summons_number", "issue_date", "amount_due", "violation"]])
