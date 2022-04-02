@@ -8,7 +8,7 @@ x.createDataFrame()
 x.cleanDataFrame()
 x.print()
 
-y = threeOneOne("bbl","2039970068")
+y = threeOneOne("street","FULLER STREET","BRONX")
 y.getInfo()
 y.createDataFrame()
 y.cleanDataFrame()

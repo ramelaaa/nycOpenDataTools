@@ -7,8 +7,8 @@ class threeOneOne:
             self.bbl = args[1]
             self.type = "bbl"
         elif(len(args) == 3):
-            self.street = args[0]
-            self.borough = args[1]
+            self.street = args[1]
+            self.borough = args[2]
             self.type = "street"
         self.client = Socrata("data.cityofnewyork.us", None)
 
@@ -16,7 +16,7 @@ class threeOneOne:
         if(self.type == "bbl"):
             self.data = self.client.get("erm2-nwe9",where="bbl = '"+ self.bbl +"'" ,limit=2000)
         elif(self.type =="street"):
-            self.data = self.client.get("erm2-nwe9",where="street_name = '" + self.street + "' AND borough = '"+ self.borough+ "'" ,limit=2000)
+            self.data = self.client.get("erm2-nwe9",where="street_name = '" + self.street + "' AND borough = '"+ self.borough+ "' AND status='Open'" ,limit=2000)
 
     def createDataFrame(self):
         self.data_df = pd.DataFrame.from_records(self.data)
