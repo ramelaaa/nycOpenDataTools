@@ -1,6 +1,8 @@
-from platesClass import plates 
+from plates import plates 
 from oathClass import oath
 
+oath1 = oath("RAMNAUTH", "RAMELA")
+oath2 = oath("BRONX","03997","0068")
 
 
 
