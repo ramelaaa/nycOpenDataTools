@@ -25,10 +25,10 @@ print("- 2423 Fuller Street: 2039970068, all")
 if(len(_2423Fuller_df)>0):
     print(_2423Fuller_df[["unique_key","descriptor","agency","status","created_date"]])
 else:
-    print(NONE)
+    print("NONE")
 
 print("- Fuller St, open cases only")
 if(len(fuller_street_df)>0):
     print(fuller_street_df[["unique_key","descriptor","agency","bbl","created_date"]])
 else:
-    print(NONE)
+    print("NONE")
