@@ -2,6 +2,10 @@
 import pandas as pd
 from sodapy import Socrata
 
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
 class oath:
     def __init__(self, *args):
         if(len(args) == 2):
@@ -15,7 +19,7 @@ class oath:
             self.type = "bbl" 
         else:
             "None" 
-        self.client = Socrata("data.cityofnewyork.us", "lmOou43trx5QX7S8TPBypzOmq")
+        self.client = Socrata("data.cityofnewyork.us", os.environ.get("TOKEN"))
 
     def getInfo(self):
         if(self.type == "name"):
