@@ -12,60 +12,64 @@ borough = "BRONX"
 block = "03997"
 lot = "0068"
 street = "FULLER STREET"
+lastname = "RAMNAUTH"
+firstName1 = "SURUJNAUTH"
+firstName2 = "TOUMWATEE"
+firstName3 = "RAMELA"
 
-print("OATH: SURUJNAUTH RAMNAUTH------------------------------")
-surujnauth = oath("RAMNAUTH","SURUJNAUTH")
+surujnauth = oath(lastname,firstName1)
 surujnauth.getInfo()
 surujnauth.createDataFrame()
 surujnauth.print()
 print()
-print("OATH: TOUMWATEE RAMNAUTH")
-toumwatee = oath("RAMNAUTH","TOUMWATEE------------------------")
+
+toumwatee = oath(lastname,firstName2)
 toumwatee.getInfo()
 toumwatee.createDataFrame()
 toumwatee.print()
 print()
-print("OATH: RAMELA RAMNAUTH----------------------------------")
-ramela = oath("RAMNAUTH","RAMELA")
+
+ramela = oath(lastname,firstName3)
 ramela.getInfo()
 ramela.createDataFrame()
 ramela.print()
 print()
-print("OATH: 2039970068----------------------------------------")
+
 home = oath(borough,block,lot)
 home.getInfo()
 home.createDataFrame()
 home.print()
 print()
-print("HPD Violations-----------------------------------------")
+
 hpdviolations = hpd(bin)
 hpdviolations.getInfo()
 hpdviolations.createDataFrame()
 hpdviolations.print()
 print()
-print("DOB Violations-----------------------------------------")
+
 dobviolations = dob(bin)
 dobviolations.getInfo()
 dobviolations.createDataFrame()
 dobviolations.print()
 print()
-print("DOB ECB violations-------------------------------------")
+
 dobEcbviolations = dobEcb(bin)
 dobEcbviolations.getInfo()
 dobEcbviolations.createDataFrame()
 dobEcbviolations.print()
 print()
-print("DOB Complaints----------------------------------------")
+
 dobComplaints = dobComplaints(bin)
 dobComplaints.getInfo()
 dobComplaints.createDataFrame()
 dobComplaints.print()
 print()
-print("311 Requests and Complaints---------------------------")
+
 threeOneOneBBL = threeOneOne(bbl)
 threeOneOneBBL.getInfo()
 threeOneOneBBL.createDataFrame()
 threeOneOneBBL.print()
+
 print()
 threeOneOneStreet = threeOneOne(street, borough)
 threeOneOneStreet.getInfo()
