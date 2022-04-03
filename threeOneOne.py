@@ -10,7 +10,7 @@ class threeOneOne:
             self.street = args[0]
             self.borough = args[1]
             self.type = "street"
-        self.client = Socrata("data.cityofnewyork.us", None)
+        self.client = Socrata("data.cityofnewyork.us",  "lmOou43trx5QX7S8TPBypzOmq")
 
     def getInfo(self):
         if(self.type == "bbl"):

@@ -10,7 +10,7 @@ class plates:
     def __init__(self, plateNumber, state):
         self.plateNumber = plateNumber
         self.state = state
-        self.client = Socrata("data.cityofnewyork.us", None)
+        self.client = Socrata("data.cityofnewyork.us",  "lmOou43trx5QX7S8TPBypzOmq")
 
     """
     API call is made and stored in data

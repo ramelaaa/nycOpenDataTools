@@ -15,7 +15,7 @@ class oath:
             self.type = "bbl" 
         else:
             "None" 
-        self.client = Socrata("data.cityofnewyork.us", None)
+        self.client = Socrata("data.cityofnewyork.us", "lmOou43trx5QX7S8TPBypzOmq")
 
     def getInfo(self):
         if(self.type == "name"):

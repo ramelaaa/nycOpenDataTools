@@ -9,7 +9,7 @@ class dobComplaints:
     """
     def __init__(self, bin):
         self.bin = bin
-        self.client = Socrata("data.cityofnewyork.us", None)
+        self.client = Socrata("data.cityofnewyork.us",  "lmOou43trx5QX7S8TPBypzOmq")
 
     """
     API call is made and stored in data
