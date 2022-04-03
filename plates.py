@@ -30,15 +30,19 @@ class plates:
         finally, sort by date
     """
     def cleanDataFrame(self):
-        self.tickets_df["amount_due"] = pd.to_numeric(self.tickets_df["amount_due"])
-        self.tickets_df["issue_date"] = pd.to_datetime(self.tickets_df["issue_date"])
-        self.tickets_df = self.tickets_df.sort_values(by="issue_date")
+        if(len(self.tickets_df)>0):
+            self.tickets_df["amount_due"] = pd.to_numeric(self.tickets_df["amount_due"])
+            self.tickets_df["issue_date"] = pd.to_datetime(self.tickets_df["issue_date"])
+            self.tickets_df = self.tickets_df.sort_values(by="issue_date")
+        else:
+            print(self.plateNumber, ": No tickets found!")
 
     """ 
         sum the amount of money owed
         print columns
     """
     def print(self):
-        print(self.plateNumber, self.state)
-        print("Amount Due: $",self.tickets_df["amount_due"].sum())
-        print(self.tickets_df[["summons_number", "issue_date", "amount_due", "violation"]])
+        if(len(self.tickets_df)>0):
+            print(self.plateNumber, self.state)
+            print("Amount Due: $",self.tickets_df["amount_due"].sum())
+            print(self.tickets_df[["summons_number", "issue_date", "amount_due", "violation"]])
