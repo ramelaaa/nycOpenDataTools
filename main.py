@@ -6,6 +6,13 @@ from dob import dob
 from dobEcb import dobEcb
 from dobComplaints import dobComplaints
 
+bin="2042259"
+bbl="2039970068"
+borough = "BRONX"
+block = "03997"
+lot = "0068"
+street = "FULLER STREET"
+
 print("OATH: SURUJNAUTH RAMNAUTH------------------------------")
 surujnauth = oath("RAMNAUTH","SURUJNAUTH")
 surujnauth.getInfo()
@@ -25,12 +32,10 @@ ramela.createDataFrame()
 ramela.print()
 print()
 print("OATH: 2039970068----------------------------------------")
-home = oath("BRONX","03997","0068")
+home = oath(borough,block,lot)
 home.getInfo()
 home.createDataFrame()
 home.print()
-print()
-bin="2042259"
 print()
 print("HPD Violations-----------------------------------------")
 hpdviolations = hpd(bin)
@@ -57,12 +62,12 @@ dobComplaints.createDataFrame()
 dobComplaints.print()
 print()
 print("311 Requests and Complaints---------------------------")
-threeOneOneBBL = threeOneOne("2039970068")
+threeOneOneBBL = threeOneOne(bbl)
 threeOneOneBBL.getInfo()
 threeOneOneBBL.createDataFrame()
 threeOneOneBBL.print()
 print()
-threeOneOneStreet = threeOneOne("FULLER STREET", "BRONX")
+threeOneOneStreet = threeOneOne(street, borough)
 threeOneOneStreet.getInfo()
 threeOneOneStreet.createDataFrame()
 threeOneOneStreet.print()
