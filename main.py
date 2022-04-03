@@ -6,16 +6,23 @@ from dob import dob
 from dobEcb import dobEcb
 from dobComplaints import dobComplaints
 
-binNo="2042259"
-bbl="2039970068"
-borough = "BRONX"
-block = "03997"
-lot = "0068"
-street = "FULLER STREET"
-lastname = "RAMNAUTH"
-firstName1 = "SURUJNAUTH"
-firstName2 = "TOUMWATEE"
-firstName3 = "RAMELA"
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+binNo=os.environ.get("BIN")
+bbl=os.environ.get("BBL")
+borough = os.environ.get("BOROUGH")
+block = os.environ.get("BLOCK")
+lot = os.environ.get("LOT")
+street = os.environ.get("STREET")
+lastname = os.environ.get("LASTNAME")
+firstName1 = os.environ.get("FN1")
+firstName2 = os.environ.get("FN2")
+firstName3 = os.environ.get("FN3")
 
 surujnauth = oath(lastname,firstName1)
 surujnauth.getInfo()
