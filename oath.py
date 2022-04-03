@@ -28,4 +28,10 @@ class oath:
         self.violations_df = pd.DataFrame.from_records(self.data)
 
     def print(self):
-        print(self.violations_df[["ticket_number","issuing_agency","violation_date","penalty_imposed","paid_amount","respondent_last_name"]])
+        if(len(self.violations_df)>0):
+            print(self.violations_df[["ticket_number","issuing_agency","violation_date","penalty_imposed","paid_amount","respondent_last_name"]])
+        else:
+            if(self.type == "name"):
+                print(self.lastname, self.firstname, ": No OATH violations found!")
+            else:
+                print(self.borough,self.block,self.lot ," : No OATH violations found!")
