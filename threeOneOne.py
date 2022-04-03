@@ -22,16 +22,20 @@ class threeOneOne:
         self.data_df = pd.DataFrame.from_records(self.data)
 
     def cleanDataFrame(self):
-       self.data_df["created_date"] = pd.to_datetime(self.data_df["created_date"])
-       self.data_df = self.data_df.sort_values(by="created_date")
+        if(len(self.data_df)>0): 
+           self.data_df["created_date"] = pd.to_datetime(self.data_df["created_date"])
+           self.data_df = self.data_df.sort_values(by="created_date")
+        else:
+            print("No 311 Service Requests or Complaints found.")
 
     def print(self):
-        if(self.type == "bbl"):
-            print(self.data_df[["unique_key","descriptor","agency","status","created_date"]])
+        if(len(self.data_df)>0):
+            if(self.type == "bbl"):
+                 print(self.data_df[["unique_key","descriptor","agency","status","created_date"]])
+            elif(self.type == "street"):
+                print(self.data_df[["unique_key","descriptor","agency","bbl","created_date"]])
 
-        elif(self.type == "street"):
-            print(self.data_df[["unique_key","descriptor","agency","bbl","created_date"]])
-
+       
 
 
 
