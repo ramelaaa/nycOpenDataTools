@@ -29,5 +29,8 @@ class hpd:
         print columns
     """
     def print(self):
-        print(self.bin)
-        print(self.data_df[["violationid","class","inspectiondate","violationstatus"]])
+        if(len(self.data_df)>0):
+            print(self.bin)
+            print(self.data_df[["violationid","class","inspectiondate","violationstatus"]])
+        else:
+            print("No HPD violations found")

@@ -29,5 +29,8 @@ class dobComplaints:
         print columns
     """
     def print(self):
-        print(self.bin)
-        print(self.data_df[["complaint_number","status"]])
+        if(len(self.data_df)>0):
+            print(self.bin)
+            print(self.data_df[["complaint_number","status"]])
+        else:
+            print("No DOB complaints")

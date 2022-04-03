@@ -29,5 +29,8 @@ class dobEcb:
         print columns
     """
     def print(self):
-        print(self.bin)
-        print(self.data_df[["ecb_violation_number","ecb_violation_status","violation_type","issue_date","balance_due"]])
+        if(len(self.data_df)>0):
+            print(self.bin)
+            print(self.data_df[["ecb_violation_number","ecb_violation_status","violation_type","issue_date","balance_due"]])
+        else:
+            print("No DOB ECB violations")
