@@ -39,7 +39,7 @@ class threeOneOne:
                 print(len(self.data_df), "item(s) found:", self.bbl)
                 print(self.data_df[["unique_key","descriptor","agency","status","created_date"]])
             elif(self.type == "street"):
-                print(len(self.data_df), "open item(s) found with open:", self.street, self.borough)
+                print(len(self.data_df), "open item(s) found:", self.street, self.borough)
                 print(self.data_df[["unique_key","descriptor","agency","bbl","created_date"]])
 
        
