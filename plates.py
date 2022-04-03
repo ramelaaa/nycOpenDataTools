@@ -2,6 +2,10 @@
 import pandas as pd
 from sodapy import Socrata
 
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
 class plates:
     """
     Constructor takes two parameters, a plate number and state abbreviation, both as strings
@@ -10,7 +14,7 @@ class plates:
     def __init__(self, plateNumber, state):
         self.plateNumber = plateNumber
         self.state = state
-        self.client = Socrata("data.cityofnewyork.us",  "lmOou43trx5QX7S8TPBypzOmq")
+        self.client = Socrata("data.cityofnewyork.us",  os.environ.get("TOKEN"))
 
     """
     API call is made and stored in data

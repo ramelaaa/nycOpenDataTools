@@ -1,6 +1,11 @@
 import pandas as pd
 from sodapy import Socrata
 
+
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
 class threeOneOne:
     def __init__(self, *args):
         if(len(args) == 1):
@@ -10,7 +15,7 @@ class threeOneOne:
             self.street = args[0]
             self.borough = args[1]
             self.type = "street"
-        self.client = Socrata("data.cityofnewyork.us",  "lmOou43trx5QX7S8TPBypzOmq")
+        self.client = Socrata("data.cityofnewyork.us",  os.environ.get("TOKEN"))
 
     def getInfo(self):
         if(self.type == "bbl"):
