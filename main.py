@@ -6,7 +6,7 @@ from dob import dob
 from dobEcb import dobEcb
 from dobComplaints import dobComplaints
 
-bin="2042259"
+binNo="2042259"
 bbl="2039970068"
 borough = "BRONX"
 block = "03997"
@@ -41,25 +41,25 @@ home.createDataFrame()
 home.print()
 print()
 
-hpdviolations = hpd(bin)
+hpdviolations = hpd(binNo)
 hpdviolations.getInfo()
 hpdviolations.createDataFrame()
 hpdviolations.print()
 print()
 
-dobviolations = dob(bin)
+dobviolations = dob(binNo)
 dobviolations.getInfo()
 dobviolations.createDataFrame()
 dobviolations.print()
 print()
 
-dobEcbviolations = dobEcb(bin)
+dobEcbviolations = dobEcb(binNo)
 dobEcbviolations.getInfo()
 dobEcbviolations.createDataFrame()
 dobEcbviolations.print()
 print()
 
-dobComplaints = dobComplaints(bin)
+dobComplaints = dobComplaints(binNo)
 dobComplaints.getInfo()
 dobComplaints.createDataFrame()
 dobComplaints.print()

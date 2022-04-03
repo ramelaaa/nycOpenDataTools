@@ -29,6 +29,10 @@ class oath:
 
     def print(self):
         if(len(self.violations_df)>0):
+            if(self.type == "name"):
+                print(len(self.violations_df), "ticket(s) found:", self.lastname, self.firstname)
+            if(self.type == "bbl"):
+                print(len(self.violations_df), "ticket(s) found:",self.borough, self.block, self.lot)
             print(self.violations_df[["ticket_number","issuing_agency","violation_date","penalty_imposed","paid_amount","respondent_last_name"]])
         else:
             if(self.type == "name"):

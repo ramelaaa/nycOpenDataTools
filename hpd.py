@@ -15,7 +15,7 @@ class hpd:
     API call is made and stored in data
     """
     def getInfo(self):
-        self.data = self.client.get("3h2n-5cm9",where="bin='" + self.bin +"'",limit=100000)
+        self.data = self.client.get("wvxf-dwi5",where="bin='" + self.bin +"'",limit=100000)
 
     """
     Data Frame is made from data
@@ -30,7 +30,7 @@ class hpd:
     """
     def print(self):
         if(len(self.data_df)>0):
-            print(self.bin)
+            print(len(self.data_df),"violations found",self.bin)
             print(self.data_df[["violationid","class","inspectiondate","violationstatus"]])
         else:
-            print("No HPD violations found")
+            print("No HPD violations found:",self.bin)

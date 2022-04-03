@@ -31,8 +31,10 @@ class threeOneOne:
     def print(self):
         if(len(self.data_df)>0):
             if(self.type == "bbl"):
-                 print(self.data_df[["unique_key","descriptor","agency","status","created_date"]])
+                print(len(self.data_df), "items found:", self.bbl)
+                print(self.data_df[["unique_key","descriptor","agency","status","created_date"]])
             elif(self.type == "street"):
+                print(len(self.data_df), "items found:", self.street, self.borough)
                 print(self.data_df[["unique_key","descriptor","agency","bbl","created_date"]])
 
        

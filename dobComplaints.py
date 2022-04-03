@@ -30,7 +30,7 @@ class dobComplaints:
     """
     def print(self):
         if(len(self.data_df)>0):
-            print(self.bin)
+            print(len(self.data_df),"ticket(s) found:", self.bin)
             print(self.data_df[["complaint_number","status"]])
         else:
-            print("No DOB complaints")
+            print("No DOB Complaints violations: ",self.bin)
