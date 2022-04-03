@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import pandas as pd
 from sodapy import Socrata
-
+pd.set_option('display.max_columns', None) 
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv

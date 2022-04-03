@@ -1,5 +1,6 @@
 import pandas as pd
 from sodapy import Socrata
+pd.set_option('display.max_columns', None) 
 
 
 import os
