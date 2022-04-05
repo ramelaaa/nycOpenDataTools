@@ -5,6 +5,7 @@ pd.set_option('display.max_columns', None)
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from datetime import datetime
 
 class oath:
     def __init__(self, *args):
@@ -30,6 +31,11 @@ class oath:
 
     def createDataFrame(self):
         self.violations_df = pd.DataFrame.from_records(self.data)
+
+    def printUpdateTime(self):
+        self.updatedTime = self.client.get_metadata("jz4z-kudi");
+        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        print("Last updated on: ", self.time)
 
     def printData(self):
         if(len(self.violations_df)>0):

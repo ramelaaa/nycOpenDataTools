@@ -6,6 +6,7 @@ pd.set_option('display.max_columns', None)
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from datetime import datetime
 
 class threeOneOne:
     def __init__(self, *args):
@@ -33,6 +34,12 @@ class threeOneOne:
            self.data_df = self.data_df.sort_values(by="created_date")
         else:
             print("No 311 Service Requests or Complaints found.")
+
+    def printUpdateTime(self):
+        self.updatedTime = self.client.get_metadata("erm2-nwe9");
+        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        print("Last updated on: ", self.time)
+
 
     def printData(self):
         if(len(self.data_df)>0):

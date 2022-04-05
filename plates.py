@@ -5,6 +5,7 @@ pd.set_option('display.max_columns', None)
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from datetime import datetime
 
 class plates:
     """
@@ -40,6 +41,11 @@ class plates:
             self.tickets_df = self.tickets_df.sort_values(by="issue_date")
         else:
             print(self.plateNumber, ": No tickets found for:", self.plateNumber)
+    
+    def printUpdateTime(self):
+        self.updatedTime = self.client.get_metadata("nc67-uf89");
+        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        print("Last updated on: ", self.time)
 
     """ 
         sum the amount of money owed

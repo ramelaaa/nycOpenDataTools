@@ -5,6 +5,7 @@ pd.set_option('display.max_columns', None)
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from datetime import datetime
 
 class dobComplaints:
     """
@@ -27,6 +28,10 @@ class dobComplaints:
     def createDataFrame(self):
         self.data_df = pd.DataFrame.from_records(self.data)
 
+    def printUpdateTime(self):
+        self.updatedTime = self.client.get_metadata("eabe-havv");
+        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        print("Last updated on: ", self.time)
 
     """ 
         sum the amount of money owed
