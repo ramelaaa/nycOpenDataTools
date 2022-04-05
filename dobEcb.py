@@ -31,7 +31,7 @@ class dobEcb:
 
     def printUpdateTime(self):
         self.updatedTime = self.client.get_metadata("6bgk-3dad");
-        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        self.time = datetime.fromtimestamp(self.updatedTime["rowsUpdatedAt"])
         print("Last updated on: ", self.time)
 
     """ 

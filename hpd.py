@@ -30,7 +30,7 @@ class hpd:
 
     def printUpdateTime(self):
         self.updatedTime = self.client.get_metadata("wvxf-dwi5");
-        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        self.time = datetime.fromtimestamp(self.updatedTime["rowsUpdatedAt"])
         print("Last updated on: ", self.time)
 
     """ 

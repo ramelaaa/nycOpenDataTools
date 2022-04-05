@@ -30,7 +30,7 @@ class dob:
     
     def printUpdateTime(self):
         self.updatedTime = self.client.get_metadata("3h2n-5cm9");
-        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        self.time = datetime.fromtimestamp(self.updatedTime["rowsUpdatedAt"])
         print("Last updated on: ", self.time)
 
     """ 

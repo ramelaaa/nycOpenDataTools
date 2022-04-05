@@ -44,7 +44,7 @@ class plates:
     
     def printUpdateTime(self):
         self.updatedTime = self.client.get_metadata("nc67-uf89");
-        self.time = datetime.fromtimestamp(self.updatedTime["viewLastModified"])
+        self.time = datetime.fromtimestamp(self.updatedTime["rowsUpdatedAt"])
         print("Last updated on: ", self.time)
 
     """ 
