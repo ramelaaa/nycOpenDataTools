@@ -39,6 +39,7 @@ class plates:
             self.tickets_df["amount_due"] = pd.to_numeric(self.tickets_df["amount_due"])
             self.tickets_df["issue_date"] = pd.to_datetime(self.tickets_df["issue_date"])
             self.tickets_df = self.tickets_df.sort_values(by="issue_date")
+            self.tickets_df.reset_index(inplace=True)
         else:
             print(self.plateNumber, ": No tickets found for:", self.plateNumber)
     
