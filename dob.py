@@ -32,7 +32,7 @@ class dob:
         sum the amount of money owed
         print columns
     """
-    def print(self):
+    def printData(self):
         if(len(self.data_df)>0):
             print(len(self.data_df),"ticket(s) found:", self.bin)
             print(self.data_df[["violation_number","issue_date","violation_type"]])

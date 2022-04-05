@@ -31,7 +31,7 @@ class oath:
     def createDataFrame(self):
         self.violations_df = pd.DataFrame.from_records(self.data)
 
-    def print(self):
+    def printData(self):
         if(len(self.violations_df)>0):
             if(self.type == "name"):
                 print(len(self.violations_df), "ticket(s) found:", self.lastname, self.firstname)

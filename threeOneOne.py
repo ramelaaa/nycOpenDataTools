@@ -34,7 +34,7 @@ class threeOneOne:
         else:
             print("No 311 Service Requests or Complaints found.")
 
-    def print(self):
+    def printData(self):
         if(len(self.data_df)>0):
             if(self.type == "bbl"):
                 print(len(self.data_df), "item(s) found:", self.bbl)

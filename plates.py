@@ -45,7 +45,7 @@ class plates:
         sum the amount of money owed
         print columns
     """
-    def print(self):
+    def printData(self):
         if(len(self.tickets_df)>0):
             print(len(self.tickets_df), "tickets found",self.plateNumber, self.state)
             print("Amount Due: $",self.tickets_df["amount_due"].sum())
