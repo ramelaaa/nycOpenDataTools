@@ -53,6 +53,8 @@ class plates:
         
         self.updatedTime = datetime.fromtimestamp(self.meta["rowsUpdatedAt"])
         print("Last updated on: ", self.updatedTime)
+        print("Automation:",self.meta['metadata']['custom_fields']['Update']['Automation'])
+        print("Dataset is updated:",self.meta['metadata']['custom_fields']['Update']['Update Frequency'])
 
     """ 
         sum the amount of money owed
