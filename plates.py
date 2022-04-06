@@ -6,6 +6,8 @@ import os
 from os.path import join, dirname
 from dotenv import load_dotenv
 from datetime import datetime
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 class plates:
     """
@@ -15,13 +17,17 @@ class plates:
     def __init__(self, plateNumber, state):
         self.plateNumber = plateNumber
         self.state = state
+        self.datasetID = "nc67-uf89"
         self.client = Socrata("data.cityofnewyork.us",  os.environ.get("TOKEN"))
+        
+    def getMetaData(self):
+        self.meta = self.client.get_metadata(self.datasetID)
 
     """
     API call is made and stored in data
     """
     def getInfo(self):
-        self.data = self.client.get("nc67-uf89",where="plate='" + self.plateNumber + "'AND state ='" + self.state + "'",limit=100000)
+        self.data = self.client.get(self.datasetID,where="plate='" + self.plateNumber + "'AND state ='" + self.state + "'",limit=100000)
 
     """
     Data Frame is made from data
@@ -43,10 +49,10 @@ class plates:
         else:
             print(self.plateNumber, ": No tickets found for:", self.plateNumber)
     
-    def printUpdateTime(self):
-        self.updatedTime = self.client.get_metadata("nc67-uf89");
-        self.time = datetime.fromtimestamp(self.updatedTime["rowsUpdatedAt"])
-        print("Last updated on: ", self.time)
+    def printMetadata(self):
+        
+        self.updatedTime = datetime.fromtimestamp(self.meta["rowsUpdatedAt"])
+        print("Last updated on: ", self.updatedTime)
 
     """ 
         sum the amount of money owed
