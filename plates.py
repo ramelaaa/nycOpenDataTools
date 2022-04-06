@@ -20,7 +20,7 @@ class plates:
         self.datasetID = "nc67-uf89"
         self.client = Socrata("data.cityofnewyork.us",  os.environ.get("TOKEN"))
         
-    def getMetaData(self):
+    def getMetadata(self):
         self.meta = self.client.get_metadata(self.datasetID)
 
     """
@@ -62,6 +62,7 @@ class plates:
     """
     def printData(self):
         if(len(self.tickets_df)>0):
+            self.cleanDataFrame()
             print(len(self.tickets_df), "tickets found",self.plateNumber, self.state)
             print("Amount Due: $",self.tickets_df["amount_due"].sum())
             print(self.tickets_df[["summons_number", "issue_date", "amount_due", "violation"]])
