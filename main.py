@@ -8,10 +8,11 @@ from dobComplaints import dobComplaints
 
 import os
 from os.path import join, dirname
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+# unnessary
+# dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(find_dotenv())
 
 binNo=os.environ.get("BIN")
 bbl=os.environ.get("BBL")
