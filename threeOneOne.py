@@ -49,6 +49,8 @@ class threeOneOne:
             elif(self.type == "street"):
                 print(len(self.data_df), "open item(s) found:", self.street, self.borough)
                 print(self.data_df[["unique_key","descriptor","agency","bbl","created_date"]])
+        else:
+            print("no 311 complaints found")
 
        
 

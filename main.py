@@ -10,6 +10,13 @@ import os
 from os.path import join, dirname
 from dotenv import load_dotenv, find_dotenv
 
+if os.path.isfile(".env"):
+    print(".env file found!")
+elif os.path.isfile("../.env"):
+    print(".env file found!")
+else:
+    print("no .env file found")
+
 # unnessary
 # dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(find_dotenv())
