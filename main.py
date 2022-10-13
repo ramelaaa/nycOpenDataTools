@@ -16,6 +16,7 @@ elif os.path.isfile("../.env"):
     print(".env file found!")
 else:
     print("no .env file found")
+    os.abort()
 
 # unnessary
 # dotenv_path = join(dirname(__file__), '.env')
