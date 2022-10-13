@@ -1,7 +1,20 @@
-install packages, use requirments.txt: pip3 install -r requirements.txt
-to start: source env/bin/activate
+# nyc open data tools
 
-things to do:
-add dot-env
-update readme
-add cats permit?
+## Description
+Command Line tool writen in python that allows users to utilize various NYC Open Data APIs.
+
+## Getting Started
+Activate virtual environment: 
+```
+source env/bin/activate
+```
+Install packages using [requirments.txt](nycOpenDataTools/requirements.txt): 
+
+```
+pip3 install -r requirements.txt
+```
+
+
+## Possible Improvements:
+- update readme
+- add cats permit?
